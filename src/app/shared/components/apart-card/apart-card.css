@@ -1,0 +1,242 @@
+.apart-item {
+  border: none;
+  width: 380px;
+  height: 470px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  position: relative;
+  background-color: white;
+}
+
+.apart-item-text {
+  padding: 15px;
+}
+
+.rental-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 2;
+  background-color: #e3f2fd;
+  color: #1976d2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.rental-badge.long-term {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.address-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.address-block svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+.apart-name {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.apart-item-action {
+  border-top: 1px lightgray solid;
+  width: 100%;
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.apart-price {
+  color: #ff9d5b;
+  font-size:20px;
+  font-weight: 700;
+}
+.apart-price span{
+  color: #3a332e;
+  font-size:18px;
+  font-weight: 400;
+}
+
+.apart-info {
+  display: flex;
+  align-items: flex-end;
+  font-size: 17px;
+}
+.apart-type {
+  margin-left:5px;
+  margin-right: 10px;
+}
+
+.info-btn {
+  padding: 10px;
+  font-size: 14px;
+  background-color: #ff9d5b;
+  color: white;
+  border: none;
+  transition-duration: 0.3s;
+}
+
+.info-btn:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.apart-slider {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.slider-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-prev,
+.slider-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #333;
+  transition: all 0.3s;
+  z-index: 2;
+}
+
+.slider-prev {
+  left: 10px;
+}
+
+.slider-next {
+  right: 10px;
+}
+
+.slider-prev:hover,
+.slider-next:hover {
+  background: #ff9d5b;
+  color: white;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.slider-dot.active {
+  background: #ff9d5b;
+  transform: scale(1.2);
+}
+
+.slider-dot:hover {
+  background: #77a872;
+}
+
+/* Адаптация карточки под слайдер */
+.apart-item {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.apart-img {
+  display: none; /* Скрываем старое изображение */
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+  .apart-item {
+    width: 350px;
+    margin-bottom: 15px;
+  }
+  .rental-badge{
+    top: 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .apart-item {
+    width: 385px;
+  }
+}
+
+@media (max-width: 375px) {
+  .rental-badge{
+    left: 15px;
+  }
+  .apart-item {
+    width: 355px;
+  }
+}
+
+@media (max-width: 320px) {
+  .apart-item {
+    width: 300px;
+    min-height: 100%;
+    height: 100%;
+  }
+  .rental-badge{
+    top: 30px;
+  }
+}

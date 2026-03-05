@@ -1,0 +1,293 @@
+<div class="apartment-page" *ngIf="apartment; else loading">
+  <!-- Хлебные крошки -->
+  <div class="container">
+    <div class="breadcrumbs">
+      <a routerLink="/">Главная</a>
+      <span class="separator">/</span>
+      <a routerLink="/catalog">Каталог</a>
+      <span class="separator">/</span>
+      <span class="current">{{ apartment.name }}</span>
+    </div>
+
+    <div class="apartment-container">
+      <!-- Левая колонка - слайдер -->
+      <div class="apartment-gallery">
+        <div class="main-slider">
+          <div class="slider-container" #sliderContainer>
+            <div *ngFor="let image of apartment.images; let i = index"
+                 class="slider-slide"
+                 [class.active]="i === currentSlideIndex">
+              <img [src]="image" [alt]="apartment.name + ' - фото ' + (i + 1)" loading="lazy">
+            </div>
+          </div>
+
+          <button class="slider-nav prev"
+                  *ngIf="apartment.images.length > 1"
+                  (click)="prevSlide()"
+                  [disabled]="currentSlideIndex === 0">
+            ❮
+          </button>
+          <button class="slider-nav next"
+                  *ngIf="apartment.images.length > 1"
+                  (click)="nextSlide()"
+                  [disabled]="currentSlideIndex === apartment.images.length - 1">
+            ❯
+          </button>
+
+          <!-- Индикатор текущего слайда -->
+          <div class="slide-counter" *ngIf="apartment.images.length > 1">
+            {{ currentSlideIndex + 1 }} / {{ apartment.images.length }}
+          </div>
+        </div>
+
+        <!-- Миниатюры -->
+        <div class="thumbnails" *ngIf="apartment.images.length > 1">
+          <div *ngFor="let image of apartment.images; let i = index"
+               class="thumbnail"
+               [class.active]="i === currentSlideIndex"
+               (click)="goToSlide(i)">
+            <img [src]="image" [alt]="'Миниатюра ' + (i + 1)" loading="lazy">
+          </div>
+        </div>
+
+        <div class="apartment-description" *ngIf="apartment.description">
+          <h3>Описание</h3>
+          <p>{{ apartment.description }}</p>
+        </div>
+
+        <div class="apartment-amenities" *ngIf="apartment.amenities?.length">
+          <h3>Удобства</h3>
+          <div class="amenities-grid" [class.open]="amenitiesIsOpen">
+            <div class="amenity-item" *ngFor="let amenity of apartment.amenities">
+              <span class="amenity-icon">✓</span>
+              <span>{{ amenity }}</span>
+            </div>
+          </div>
+          <a class="amenity-btn" (click)="toggleAmenitiesClass()">Показать все</a>
+        </div>
+        <div class="apartment-rules" *ngIf="apartment.rules">
+          <h3>Правила проживания</h3>
+          <div class="rules-grid" [class.open]="rulesIsOpen" >
+            <div class="rule-item">
+              <span class="rule-label">Заезд после:</span>
+              <span class="rule-value">{{ apartment.rules.checkInAfter }}</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-label">Выезд до:</span>
+              <span class="rule-value">{{ apartment.rules.checkOutBefore }}</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-label">Количество гостей:</span>
+              <span class="rule-value">{{ apartment.rules.maxGuests }}</span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-label">Бесконтактное заселение:</span>
+              <span class="rule-value" [class.yes]="apartment.rules.contactlessCheckIn" [class.no]="!apartment.rules.contactlessCheckIn">
+                  {{ apartment.rules.contactlessCheckIn ? 'Да' : 'Нет' }}
+                </span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-label">Можно с детьми:</span>
+              <span class="rule-value" [class.yes]="apartment.rules.childrenAllowed" [class.no]="!apartment.rules.childrenAllowed">
+                  {{ apartment.rules.childrenAllowed ? 'Да' : 'Нет' }}
+                </span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-label">Можно с питомцем:</span>
+              <span class="rule-value" [class.yes]="apartment.rules.petsAllowed" [class.no]="!apartment.rules.petsAllowed">
+                  {{ apartment.rules.petsAllowed ? 'Да' : 'Нет' }}
+                </span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-label">Можно курить:</span>
+              <span class="rule-value" [class.yes]="apartment.rules.smokingAllowed" [class.no]="!apartment.rules.smokingAllowed">
+                  {{ apartment.rules.smokingAllowed ? 'Да' : 'Нет' }}
+                </span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-label">Разрешены вечеринки:</span>
+              <span class="rule-value" [class.yes]="apartment.rules.partiesAllowed" [class.no]="!apartment.rules.partiesAllowed">
+                  {{ apartment.rules.partiesAllowed ? 'Да' : 'Нет' }}
+                </span>
+            </div>
+            <div class="rule-item">
+              <span class="rule-label">Отчётные документы:</span>
+              <span class="rule-value" [class.yes]="apartment.rules.documentsProvided" [class.no]="!apartment.rules.documentsProvided">
+                  {{ apartment.rules.documentsProvided ? 'Да' : 'Нет' }}
+                </span>
+            </div>
+            <div class="rule-item" *ngIf="apartment.deposit">
+              <span class="rule-label">Залог:</span>
+              <span class="rule-value">{{ apartment.deposit | currency:'RUB':'symbol-narrow':'1.0-0' }}</span>
+            </div>
+          </div>
+          <a class="rules-btn" (click)="toggleRulesClass()">Показать все</a>
+        </div>
+      </div>
+
+      <div class="apartment-info-sidebar">
+        <div class="info-card">
+          <h1 class="apartment-title">{{ apartment.name }}</h1>
+
+          <div class="apartment-location">
+            <svg width="16" height="16" viewBox="0 0 384 512" fill="#ff9d5b">
+              <path
+                d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+            </svg>
+            <span>{{ apartment.address }}</span>
+          </div>
+
+          <div class="apartment-params">
+            <div class="param">
+              <span class="param-label">Комнат:</span>
+              <span class="param-value">{{ apartment.rooms }}</span>
+            </div>
+            <div class="param">
+              <span class="param-label">Площадь:</span>
+              <span class="param-value">{{ apartment.area }} м²</span>
+            </div>
+            <div class="param">
+              <span class="param-label">Этаж:</span>
+              <span class="param-value">{{ apartment.floor }}</span>
+            </div>
+            <div class="param">
+              <span class="param-label">Тип аренды:</span>
+              <span class="param-value">
+                <span class="rental-badge" [ngClass]="getRentalBadgeClass()">
+                  {{ getRentalTypeText() }}
+                </span>
+              </span>
+            </div>
+            <div class="param">
+              <span class="param-label">Цена:</span>
+              <span class="param-value price">{{ getPriceDisplay() }}</span>
+            </div>
+          </div>
+
+          <!-- Блок правил проживания -->
+
+
+          <!-- Бейдж "Популярное" -->
+          <div class="popular-badge" *ngIf="apartment.isPopular">
+            <svg width="18" height="18" viewBox="0 0 576 512" fill="#ff9d5b">
+              <path
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+            </svg>
+            <span>Популярное предложение</span>
+          </div>
+        </div>
+
+        <!-- Форма связи -->
+        <div class="contact-form-card">
+          <h3>Свяжитесь с нами</h3>
+          <p class="form-subtitle">Заполните форму, и мы перезвоним вам в ближайшее время</p>
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+            <div class="form-group">
+              <label for="apartment">Квартира</label>
+              <input
+                type="text"
+                id="apartment"
+                formControlName="apartment"
+                readonly
+                class="form-control readonly">
+            </div>
+
+            <div class="form-group">
+              <label for="address">Адрес</label>
+              <input
+                type="text"
+                id="address"
+                formControlName="address"
+                readonly
+                class="form-control readonly">
+            </div>
+
+            <div class="form-group">
+              <label for="name">Ваше имя *</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                placeholder="Введите ваше имя"
+                class="form-control"
+                [class.invalid]="isFieldInvalid('name')">
+              <div class="error-message" *ngIf="isFieldInvalid('name')">
+                Имя обязательно для заполнения
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Телефон *</label>
+              <input
+                type="tel"
+                id="phone"
+                formControlName="phone"
+                placeholder="+7 (___) ___-__-__"
+                class="form-control"
+                [class.invalid]="isFieldInvalid('phone')"
+                phoneMask>
+              <div class="error-message" *ngIf="isFieldInvalid('phone')">
+                Введите корректный номер телефона
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                placeholder="example@mail.com"
+                class="form-control"
+                [class.invalid]="isFieldInvalid('email')">
+              <div class="error-message" *ngIf="isFieldInvalid('email')">
+                Введите корректный email
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Сообщение</label>
+              <textarea
+                id="message"
+                formControlName="message"
+                rows="4"
+                placeholder="Ваше сообщение (необязательно)"
+                class="form-control"></textarea>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" formControlName="agreement">
+                <span>Я согласен на обработку персональных данных *</span>
+              </label>
+              <div class="error-message" *ngIf="isFieldInvalid('agreement')">
+                Необходимо согласие на обработку данных
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="submit-button"
+              [disabled]="contactForm.invalid || isSubmitting">
+              <span *ngIf="!isSubmitting">Отправить</span>
+              <span *ngIf="isSubmitting">Отправка...</span>
+            </button>
+          </form>
+
+          <div class="success-message" *ngIf="showSuccessMessage">
+            <span class="success-icon">✓</span>
+            <span>Спасибо! Мы свяжемся с вами в ближайшее время.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading-spinner">
+    <div class="spinner"></div>
+    <p>Загрузка информации о квартире...</p>
+  </div>
+</ng-template>

@@ -1,0 +1,212 @@
+<main>
+  <div class="bg">
+    <section class="main" id="main">
+      <div class="container">
+        <h1 class="main-title">АРЕНДА КВАРТИР В СОЧИ</h1>
+        <div class="main-description">Уютные квартиры в Сочи для комфортного отдыха! <span>Оформите заявку прямо сейчас.</span>
+        </div>
+        <div class="main-action">
+          <button type="button" class="btn main-btn" id="main-btn" >Посмотреть квартиры</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <section class="about-us" id="advantages">
+    <div class="container">
+      <h2 class="title about-title">Почему выбирают нас?</h2>
+      <div class="about-grid">
+        <div class="about-item">
+        <span class="about-icon">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C8 2 5 5 5 9c0 5.5 7 13 7 13s7-7.5 7-13c0-4-3-7-7-7z"></path>
+                <circle cx="12" cy="9" r="2"></circle>
+            </svg>
+        </span>
+          <h3 class="about-heading">Расположение</h3>
+          <p class="about-text">Красивые локации с хорошей инфраструктурой</p>
+        </div>
+
+        <div class="about-item">
+        <span class="about-icon">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+        </span>
+          <h3 class="about-heading">Уют и комфорт</h3>
+          <p class="about-text">Стильный дизайн, чистота и всё необходимое для вашего отдыха.</p>
+        </div>
+
+        <div class="about-item">
+        <span class="about-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path fill="currentColor"
+                  d="M374.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-320 320c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l320-320zM128 128A64 64 0 1 0 0 128a64 64 0 1 0 128 0zM384 384a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg>
+        </span>
+          <h3 class="about-heading">Гибкие условия</h3>
+          <p class="about-text">Возможны скидки при длительном бронировании и индивидуальные условия.</p>
+        </div>
+
+        <div class="about-item">
+        <span class="about-icon">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.26 19.86 19.86 0 0 1-6.26-6.26A19.86 19.86 0 0 1 2.08 5 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72 11.05 11.05 0 0 0 .56 2.62 2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.54-1.12a2 2 0 0 1 2.11-.45 11.05 11.05 0 0 0 2.62.56A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+        </span>
+          <h3 class="about-heading">Поддержка 24/7</h3>
+          <p class="about-text">Мы всегда на связи, готовы помочь вам в любое время.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="apartment" #apartmentBlock id="apartment-main">
+    <div class="container">
+      <div class="title apartment-title">КВАРТИРЫ В НАЛИЧИИ</div>
+      <div class="apart-items hidden" #apartmentItems id="apartment-items">
+        <app-apart-card
+          *ngFor="let apartment of apartmentsData;"
+          [apartment]="apartment"
+          >
+        </app-apart-card>
+      </div>
+      <div class="apart-action">
+        <button class="show-all-btn" *ngIf="apartmentsData.length > 3" #showAllBtn type="button" id="show-all" (click)="toggleShow()">Посмотреть все</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-to-book">
+    <div class="container">
+      <h2 class="title book-title">Как забронировать?</h2>
+      <div class="steps-line">
+        <div class="step">
+          <span class="step-circle">1</span>
+          <p class="step-text">Выберите квартиру и даты</p>
+        </div>
+        <div class="step">
+          <span class="step-circle">2</span>
+          <p class="step-text">Оставьте заявку или свяжитесь</p>
+        </div>
+        <div class="step">
+          <span class="step-circle">3</span>
+          <p class="step-text">Подтвердите бронь и оплатите</p>
+        </div>
+        <div class="step">
+          <span class="step-circle">4</span>
+          <p class="step-text">Получите инструкции</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking" id="contacts">
+    <div class="container">
+      <div class="booking-content">
+        <div class="booking-info">
+          <h2 class="title booking-title">Бронирование квартиры</h2>
+          <p class="booking-description">
+            Забронируйте уютную квартиру в центре Сочи. Мы предлагаем комфортное проживание, гибкие условия бронирования и поддержку 24/7.
+          </p>
+          <p class="booking-description">
+            Просто выберите подходящие даты и оставьте заявку. Мы свяжемся с вами для уточнения деталей.
+          </p>
+        </div>
+        <div class="contact-form">
+          <form id="bookingForm">
+            <label for="apartment-options">Выберите квартиру:</label>
+            <select id="apartment-options" name="apartment">
+              <option value="1">Квартира 1</option>
+              <option value="2">Квартира 2</option>
+              <option value="3">Квартира 3</option>
+            </select>
+            <div class="common-error">Выберите квартиру</div>
+
+            <label for="phone">Номер телефона:</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" phoneMask
+            #phoneInput>
+            <div class="common-error">Заполните номер</div>
+
+            <label for="fullname">ФИО:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Введите ФИО">
+            <div class="common-error">Заполните ФИО</div>
+
+            <label for="checkin">Дата заезда:</label>
+            <input type="date" id="checkin" name="checkin" placeholder="Выберите дату заезда">
+            <div class="common-error">Выберите дату</div>
+
+            <label for="checkout">Дата выезда:</label>
+            <input type="date" id="checkout" name="checkout" placeholder="Выберите дату выезда">
+            <div class="common-error">Выберите дату</div>
+
+            <button type="button" class="btn form-button" id="form-button">Отправить заявку</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="popup-overlay" id="popupOverlay" #popupOverlay (click)="hidePopup()"></div>
+<div class="adv-popup" id="advPopup" #popup>
+  <button class="popup-close" id="popupClose" (click)="hidePopup()">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <div class="popup-content">
+    <div class="popup-offer">
+      <div class="discount-badge">-5%</div>
+      <h2 class="popup-title">Скидка для новых клиентов</h2>
+      <p class="popup-subtitle">Только сегодня специальное предложение</p>
+      <div class="popup-features">
+        <div class="feature-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="8" fill="#00A67E" fill-opacity="0.2"/>
+            <path d="M6 10L9 13L14 7" stroke="#00A67E" stroke-width="2"/>
+          </svg>
+          <span>Лучшие цены на рынке</span>
+        </div>
+        <div class="feature-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="8" fill="#00A67E" fill-opacity="0.2"/>
+            <path d="M6 10L9 13L14 7" stroke="#00A67E" stroke-width="2"/>
+          </svg>
+          <span>Большой выбор квартир</span>
+        </div>
+        <div class="feature-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="8" fill="#00A67E" fill-opacity="0.2"/>
+            <path d="M6 10L9 13L14 7" stroke="#00A67E" stroke-width="2"/>
+          </svg>
+          <span>Бесплатная консультация</span>
+        </div>
+      </div>
+    </div>
+    <div class="popup-form">
+      <h3 class="form-title">Получите скидку 5%</h3>
+      <p class="form-subtitle">Оставьте заявку и мы свяжемся с вами</p>
+
+      <form id="popupCallbackForm">
+        <div class="form-group">
+          <label for="popupName">Ваше имя</label>
+          <input type="text" id="popupName" name="name" placeholder="Введите имя" required>
+        </div>
+
+        <div class="form-group">
+          <label for="popupPhone">Номер телефона</label>
+          <input type="tel" id="popupPhone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <div class="form-error">Заполните номер телефона</div>
+        </div>
+        <button type="submit" class="popup-submit-btn">Получить скидку 5%</button>
+
+        <div class="form-agreement">
+          Нажимая кнопку, вы соглашаетесь с
+          <a href="#">политикой конфиденциальности</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
