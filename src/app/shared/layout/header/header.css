@@ -53,6 +53,7 @@ header .container {
   color: #3a332e;
   font-size: 18px;
   transition-duration: 0.3s;
+  cursor: pointer;
 }
 .menu-item a:hover{
   color: #77a872;

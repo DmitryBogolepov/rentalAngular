@@ -18,7 +18,7 @@ export class ApartmentComponent implements OnInit, OnDestroy {
   apartment: Apartment | undefined;
   loading = true;
   error = false;
-
+  todayDate: string = new Date().toISOString().split('T')[0];
   currentSlideIndex = 0;
   private slideInterval: any;
 
@@ -40,6 +40,8 @@ export class ApartmentComponent implements OnInit, OnDestroy {
       name: ['', [Validators.required, Validators.minLength(2)]],
       phone: ['', [Validators.required, Validators.pattern(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/)]],
       email: ['', [Validators.email]],
+      dateFrom: ['', [Validators.required]],
+      dateTo: ['', [Validators.required]],
       message: [''],
       agreement: [false, Validators.requiredTrue]
     });

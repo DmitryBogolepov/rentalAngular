@@ -233,7 +233,7 @@
 @media (max-width: 320px) {
   .apart-item {
     width: 300px;
-    min-height: 100%;
+    min-height: 485px;
     height: 100%;
   }
   .rental-badge{

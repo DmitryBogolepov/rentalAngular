@@ -268,6 +268,7 @@
   font-size: 38px;
   text-align: left;
   color: #f3efe6;
+
 }
 
 .booking-description {
@@ -288,6 +289,10 @@ form {
   box-sizing: border-box;
 }
 
+.form-title {
+  margin-bottom: 10px;
+}
+
 label {
   font-size: 17px;
   display: block;
@@ -299,14 +304,26 @@ label:not(:first-child) {
   margin-top: 15px;
 }
 
-
 input, select, textarea {
   box-sizing: border-box;
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
   padding: 10px;
   border: 1px solid #ccc;
   font-size: 16px;
   border-radius: 5px;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Добавлено: стили для невалидных полей */
+input.invalid, select.invalid, textarea.invalid {
+  border-color: red;
+  background-color: #fff0f0;
 }
 
 .common-error {
@@ -315,21 +332,101 @@ input, select, textarea {
   display: none;
   text-align: left;
   margin-left: 5px;
+  margin-top: 5px;
+}
+
+/* Добавлено: показываем ошибку когда поле невалидно */
+input.invalid + .common-error,
+select.invalid + .common-error,
+textarea.invalid + .common-error,
+.common-error.show {
+  display: block;
 }
 
 .form-button {
   margin-top: 25px;
   padding: 15px 25px;
-  border:none;
+  border: none;
   color: white;
   font-size: 16px;
   transition: 0.3s;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%;
+  max-width: 380px;
 }
 
-.form-button:hover {
+.form-button:hover:not(:disabled) {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.form-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Добавлено: чекбокс группа */
+.checkbox-group {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.checkbox-group label {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.checkbox-group .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 0 0 17px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Добавлено: сообщение об успехе */
+.success-message {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.success-icon {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Добавлено: глобальная ошибка */
+.error-message-global {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 
@@ -557,6 +654,207 @@ input, select, textarea {
   text-decoration: underline;
 }
 
+
+/* Основные стили секции отзывов */
+.reviews{
+  padding: 60px 0;
+  background: #f0ece2;
+}
+
+.reviews .container {
+  position: relative;
+}
+
+.reviews-title {
+  color: #5a4a42;
+  font-size: 36px;
+}
+
+/* Слайдер */
+.reviews-slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 345px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.reviews-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  padding: 20px 0;
+}
+
+.reviews-slide {
+  padding: 0 15px;
+  box-sizing: border-box;
+  flex: 0 0 33.333%;
+}
+
+/* Карточка отзыва */
+.review-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Информация о пользователе */
+.reviews-user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  margin-right: 15px;
+}
+
+.avatar-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(110deg, #77a872 0%, #ff9d5b 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.reviews-user-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 5px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* Рейтинг звездами */
+.reviews-user-rating {
+  margin: 5px 0;
+}
+
+.star {
+  font-size: 16px;
+  margin-right: 2px;
+  display: inline-block;
+}
+
+.star.filled {
+  color: #ffc107;
+}
+
+.star.empty {
+  color: #e4e5e9;
+}
+
+.review-date {
+  font-size: 12px;
+  color: #999;
+  margin: 5px 0 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* Текст отзыва */
+.reviews-text {
+  flex: 1;
+}
+
+.reviews-text p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* Кнопки навигации */
+.slider-btn {
+  position: absolute;
+  top: 57%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-family: monospace;
+}
+
+
+.slider-btn:hover {
+  background: #ff9d5b;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.slider-btn-prev {
+  left: 60px;
+}
+
+.slider-btn-next {
+  right: 60px;
+}
+
+/* Точки навигации */
+.slider-dots {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ddd;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.dot:hover {
+  background: #999;
+}
+
+.dot.active {
+  background: #ff9d5b;
+  width: 25px;
+  border-radius: 5px;
+}
+
+/* Адаптивность для планшетов */
+
 @media (max-width: 1024px) {
   .steps-line::before {
     width: 84%;
@@ -575,6 +873,13 @@ input, select, textarea {
 
   .show-all-btn {
     margin-top: 30px;
+  }
+  .slider-btn-prev {
+    left: 17px;
+  }
+
+  .slider-btn-next {
+    right: 17px;
   }
 }
 
@@ -612,11 +917,23 @@ input, select, textarea {
   .steps-line::before {
     top: 20%;
   }
-  input, select, textarea {
+  input, select  {
     width: 320px;
   }
   .booking-description {
     font-size: 14px;
+  }
+
+  .form-group.checkbox-group {
+    margin-bottom: 0;
+
+  }
+  textarea {
+    width: 100%;
+  }
+
+  .form-group.checkbox-group .checkbox-label {
+    margin-left: 0;
   }
 }
 
@@ -850,13 +1167,13 @@ input, select, textarea {
     padding: 70px 0;
   }
 
-  input, select, textarea {
+  input, select{
     width: 295px;
   }
 }
 
 @media (max-width: 325px) {
-  input, select, textarea {
+  input, select {
     width: 250px;
   }
   .booking-description {
@@ -884,3 +1201,98 @@ input, select, textarea {
     padding: 10px 25px;
   }
 }
+
+
+
+@media (max-width: 1024px) {
+  .reviews-slide {
+    flex: 0 0 50%;
+  }
+
+  .slider-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+  .reviews-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 40px 0;
+  }
+
+  .reviews-slide {
+    flex: 0 0 100%;
+  }
+
+  .reviews-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .slider-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    top: 49%;
+  }
+
+  .review-card {
+    padding: 20px;
+  }
+
+  .avatar-placeholder {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .reviews-user-name {
+    font-size: 16px;
+  }
+
+  .reviews-text p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews-container {
+    padding: 0 15px;
+  }
+
+  .slider-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    top: 55%;
+  }
+  .reviews-slider-wrapper {
+    height: 325px;
+  }
+}
+@media (max-width: 375px) {
+  .slider-btn-next {
+    right: 12px;
+  }
+  .slider-btn-prev {
+    left: 12px;
+  }
+}
+
+@media (max-width:  320px) {
+  .slider-btn {
+    top: 58%;
+  }
+}
+
+
+
+
+
+

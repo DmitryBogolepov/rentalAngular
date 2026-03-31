@@ -102,6 +102,73 @@
     </div>
   </section>
 
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <h2 class="title reviews-title">Отзывы наших клиентов</h2>
+
+      <div class="reviews-slider-wrapper">
+
+
+        <div class="reviews-slider" [style.transform]="'translateX(-' + (currentSlide * (100 / slidesToShow)) + '%)'">
+          <div
+            class="reviews-slide"
+            *ngFor="let review of reviews"
+            [style.flex]="'0 0 ' + (100 / slidesToShow) + '%'">
+
+            <div class="review-card">
+              <div class="reviews-user-info">
+                <div class="user-avatar">
+                  <div class="avatar-placeholder">
+                    {{ review.name.charAt(0) }}
+                  </div>
+                </div>
+                <div class="user-details">
+                  <p class="reviews-user-name">{{ review.name }}</p>
+                  <div class="reviews-user-rating">
+                  <span
+                    class="star"
+                    *ngFor="let star of getRatingStars(review.rating)">
+                    {{ star }}
+                  </span>
+                  </div>
+                  <p class="review-date">{{ review.date }}</p>
+                </div>
+              </div>
+              <div class="reviews-text">
+                <p>{{ review.text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <button
+        class="slider-btn slider-btn-prev"
+        (click)="prevSlide()"
+        aria-label="Предыдущий отзыв">
+        ❮
+      </button>
+
+
+      <button
+        class="slider-btn slider-btn-next"
+        (click)="nextSlide()"
+        aria-label="Следующий отзыв">
+        ❯
+      </button>
+      <div class="slider-dots">
+        <button
+          *ngFor="let dot of getDotIndices(); let i = index"
+          class="dot"
+          [class.active]="i === currentSlide"
+          (click)="goToSlide(i)">
+        </button>
+      </div>
+    </div>
+  </section>
+
+
   <section class="booking" id="contacts">
     <div class="container">
       <div class="booking-content">
@@ -115,33 +182,88 @@
           </p>
         </div>
         <div class="contact-form">
-          <form id="bookingForm">
-            <label for="apartment-options">Выберите квартиру:</label>
-            <select id="apartment-options" name="apartment">
-              <option value="1">Квартира 1</option>
-              <option value="2">Квартира 2</option>
-              <option value="3">Квартира 3</option>
-            </select>
-            <div class="common-error">Выберите квартиру</div>
+          <form [formGroup]="contactForm" class="booking-form">
+            <h3 class="form-title">Свяжитесь с нами</h3>
+            <p class="form-subtitle">Оставьте свои контакты, и мы ответим на все ваши вопросы</p>
+            <div class="form-group">
+              <label for="fullname">Ваше имя *</label>
+              <input
+                type="text"
+                id="fullname"
+                formControlName="fullname"
+                placeholder="Введите ваше имя"
+                class="form-control"
+                [class.invalid]="isFieldInvalid('fullname')">
+              <div class="error-message" *ngIf="isFieldInvalid('fullname')">
+                Пожалуйста, укажите ваше имя
+              </div>
+            </div>
 
-            <label for="phone">Номер телефона:</label>
-            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" phoneMask
-            #phoneInput>
-            <div class="common-error">Заполните номер</div>
+            <div class="form-group">
+              <label for="phone">Номер телефона *</label>
+              <input
+                type="tel"
+                id="phone"
+                formControlName="phone"
+                placeholder="+7 (___) ___-__-__"
+                class="form-control"
+                [class.invalid]="isFieldInvalid('phone')"
+                phoneMask>
+              <div class="error-message" *ngIf="isFieldInvalid('phone')">
+                Введите корректный номер телефона
+              </div>
+            </div>
 
-            <label for="fullname">ФИО:</label>
-            <input type="text" id="fullname" name="fullname" placeholder="Введите ФИО">
-            <div class="common-error">Заполните ФИО</div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                placeholder="example@mail.com"
+                class="form-control"
+                [class.invalid]="isFieldInvalid('email')">
+              <div class="error-message" *ngIf="isFieldInvalid('email')">
+                Введите корректный email адрес
+              </div>
+            </div>
 
-            <label for="checkin">Дата заезда:</label>
-            <input type="date" id="checkin" name="checkin" placeholder="Выберите дату заезда">
-            <div class="common-error">Выберите дату</div>
+            <div class="form-group">
+              <label for="message">Сообщение</label>
+              <textarea
+                id="message"
+                formControlName="message"
+                rows="4"
+                placeholder="Расскажите, что вас интересует (необязательно)"
+                class="form-control"></textarea>
+            </div>
 
-            <label for="checkout">Дата выезда:</label>
-            <input type="date" id="checkout" name="checkout" placeholder="Выберите дату выезда">
-            <div class="common-error">Выберите дату</div>
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" formControlName="agreement">
+                <span>Я согласен на обработку персональных данных *</span>
+              </label>
+              <div class="error-message" *ngIf="isFieldInvalid('agreement')">
+                Необходимо ваше согласие на обработку данных
+              </div>
+            </div>
 
-            <button type="button" class="btn form-button" id="form-button">Отправить заявку</button>
+            <button
+              type="submit"
+              class="btn form-button"
+              [disabled]="contactForm.invalid || isSubmitting">
+              <span *ngIf="!isSubmitting">Отправить заявку</span>
+              <span *ngIf="isSubmitting">Отправка...</span>
+            </button>
+
+            <div class="success-message" *ngIf="showSuccessMessage">
+              <span class="success-icon">✓</span>
+              <span>Спасибо! Мы свяжемся с вами в ближайшее время.</span>
+            </div>
+
+            <div class="error-message-global" *ngIf="errorMessage">
+              {{ errorMessage }}
+            </div>
           </form>
         </div>
       </div>
