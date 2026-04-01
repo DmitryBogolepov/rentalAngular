@@ -5,6 +5,7 @@ import {PhoneMaskDirective} from '../../shared/directives/phone-mask';
 import {ApartmentService} from '../../shared/services/apartment.service';
 import {Apartment} from '../../../types/apartment.type';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {RouterLink} from '@angular/router';
 interface Review {
   id: number;
   name: string;
@@ -16,7 +17,7 @@ interface Review {
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule, ApartCard, PhoneMaskDirective, ReactiveFormsModule],
+  imports: [CommonModule, ApartCard, PhoneMaskDirective, ReactiveFormsModule, RouterLink],
   templateUrl: './main.html',
   styleUrl: './main.css',
 })

@@ -50,10 +50,16 @@
           </div>
         </div>
 
+        <div *ngIf="apartment.isLongTerm" class="apartment-description">
+          <h3>Долгосрочная аренда:</h3>
+          <p>По вопросам долгосрочной аренды цену уточняйте отдельно</p>
+        </div>
+
         <div class="apartment-description" *ngIf="apartment.description">
           <h3>Описание</h3>
           <p>{{ apartment.description }}</p>
         </div>
+
 
         <div class="apartment-amenities" *ngIf="apartment.amenities?.length">
           <h3>Удобства</h3>
@@ -178,7 +184,7 @@
         </div>
 
         <!-- Форма связи -->
-        <div class="contact-form-card">
+        <div class="contact-form-card" *ngIf="!showSuccessMessage">
           <h3>Свяжитесь с нами</h3>
           <p class="form-subtitle">Заполните форму, и мы перезвоним вам в ближайшее время</p>
 
@@ -304,11 +310,10 @@
               <span *ngIf="isSubmitting">Отправка...</span>
             </button>
           </form>
-
-          <div class="success-message" *ngIf="showSuccessMessage">
-            <span class="success-icon">✓</span>
-            <span>Спасибо! Мы свяжемся с вами в ближайшее время.</span>
-          </div>
+        </div>
+        <div class="success-message" *ngIf="showSuccessMessage">
+          <span class="success-icon">✓</span>
+          <span>Спасибо! Мы свяжемся с вами в ближайшее время.</span>
         </div>
       </div>
     </div>

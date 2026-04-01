@@ -7,8 +7,11 @@
         <img [src]="slide" [alt]="'photo of apartment ' + (i + 1)">
       </div>
     </div>
-    <div class="rental-badge" [class.long-term]="apartment.isLongTerm">
-      {{ apartment.isLongTerm ? 'Долгосрочно' : 'Посуточно' }}
+    <div *ngIf="apartment.isLongTerm || !apartment.isLongTerm" class="rental-badge">
+      {{ 'Посуточно' }}
+    </div>
+    <div *ngIf="apartment.isLongTerm" class="rental-badge" [class.long-term]="apartment.isLongTerm">
+      {{ 'Долгосрочно' }}
     </div>
     <button class="slider-prev" type="button" (click)="prevSlide()">❮</button>
     <button class="slider-next" type="button" (click)="nextSlide()">❯</button>

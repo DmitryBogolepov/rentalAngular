@@ -133,13 +133,13 @@ export class ApartmentComponent implements OnInit, OnDestroy {
   getPriceDisplay(): string {
     if (!this.apartment) return '';
     return this.apartment.isLongTerm
-      ? `${this.apartment.price} ₽/мес`
+      ? `${this.apartment.price} ₽/сутки`
       : `${this.apartment.price} ₽/сутки`;
   }
 
 // Получить текст типа аренды
   getRentalTypeText(): string {
-    return this.apartment?.isLongTerm ? 'Долгосрочно' : 'Посуточно';
+    return this.apartment?.isLongTerm ? 'Посуточно, Долгосрочно' : 'Посуточно';
   }
 
 // Получить класс для бейджа
