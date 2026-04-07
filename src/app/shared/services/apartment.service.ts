@@ -19,10 +19,15 @@ export class ApartmentService {
       isPopular: true,
       isLongTerm: false,
       images: [
-        "assets/img/apart.jpg",
-        "assets/img/apart2.jpg",
-        "assets/img/apart3.png",
-        "assets/img/apart4.jpg"
+        "assets/img/apartments/apart1050/img1050.jpg",
+        "assets/img/apartments/apart1050/img1050.1.jpg",
+        "assets/img/apartments/apart1050/img1050.2.jpg",
+        "assets/img/apartments/apart1050/img1050.3.jpg",
+        "assets/img/apartments/apart1050/img1050.4.jpg",
+        "assets/img/apartments/apart1050/img1050.5.jpg",
+        "assets/img/apartments/apart1050/img1050.6.jpg",
+        "assets/img/apartments/apart1050/img1050.7.jpg",
+
       ],
       description: 'Прекрасная студия с современным ремонтом, полностью укомплектованная всем необходимым для комфортного проживания. В квартире есть всё необходимое: кондиционер, холодильник, плита, микроволновка, стиральная машина, телевизор, фен, утюг. Для вашего комфорта предоставляется постельное белье, полотенца и средства гигиены. Из окон открывается вид на улицу, есть лоджия.',
       amenities: [
@@ -65,13 +70,18 @@ export class ApartmentService {
       area: 30,
       price: 5000,
       floor: 3,
-      isPopular: false,
+      isPopular: true,
       isLongTerm: false,
       images: [
-        "assets/img/apart.jpg",
-        "assets/img/apart2.jpg",
-        "assets/img/apart3.png",
-        "assets/img/apart4.jpg"
+        "assets/img/apartments/apart1030/img1030.JPG",
+        "assets/img/apartments/apart1030/img1030.1.JPG",
+        "assets/img/apartments/apart1030/img1030.2.JPG",
+        "assets/img/apartments/apart1030/img1030.3.jpg",
+        "assets/img/apartments/apart1030/img1030.4.jpg",
+        "assets/img/apartments/apart1030/img1030.5.jpg",
+        "assets/img/apartments/apart1030/img1030.6.jpg",
+        "assets/img/apartments/apart1030/img1030.7.jpg",
+        "assets/img/apartments/apart1030/img1030.8.jpg",
       ],
       description: 'Уютная студия с современным ремонтом, полностью укомплектованная всем необходимым для комфортного проживания. В квартире есть кондиционер, холодильник, плита, микроволновка, стиральная машина, телевизор, фен, утюг. Для вашего комфорта предоставляется постельное белье, полотенца и средства гигиены.',
       amenities: [
@@ -116,10 +126,17 @@ export class ApartmentService {
       isPopular: false,
       isLongTerm: false,
       images: [
-        "assets/img/apart.jpg",
-        "assets/img/apart2.jpg",
-        "assets/img/apart3.png",
-        "assets/img/apart4.jpg"
+        "assets/img/apartments/apart8247/101.jpg",
+        "assets/img/apartments/apart8247/102.jpg",
+        "assets/img/apartments/apart8247/105.jpg",
+        "assets/img/apartments/apart8247/106.jpg",
+        "assets/img/apartments/apart8247/107.jpg",
+        "assets/img/apartments/apart8247/108.jpg",
+        "assets/img/apartments/apart8247/110.jpg",
+        "assets/img/apartments/apart8247/113.jpg",
+        "assets/img/apartments/apart8247/114.jpg",
+        "assets/img/apartments/apart8247/115.jpg",
+
       ],
       description: 'Уютная однокомнатная квартира с балконом. Полностью укомплектована всем необходимым для комфортного проживания: кондиционер, холодильник, плита, микроволновка, стиральная машина, водонагреватель, телевизор, фен, утюг. Для вашего комфорта предоставляется постельное белье, полотенца и средства гигиены. Возможна помесячная аренда.',
       amenities: [
@@ -164,13 +181,20 @@ export class ApartmentService {
       area: 52.1,
       price: 5000,
       floor: 3,
-      isPopular: false,
+      isPopular: true,
       isLongTerm: true,
       images: [
-        "assets/img/apart.jpg",
-        "assets/img/apart2.jpg",
-        "assets/img/apart3.png",
-        "assets/img/apart4.jpg"
+        "assets/img/apartments/apart8252/201.jpg",
+        "assets/img/apartments/apart8252/202.jpg",
+        "assets/img/apartments/apart8252/205.jpg",
+        "assets/img/apartments/apart8252/206.jpg",
+        "assets/img/apartments/apart8252/207.jpg",
+        "assets/img/apartments/apart8252/209.jpg",
+        "assets/img/apartments/apart8252/211.jpg",
+        "assets/img/apartments/apart8252/215.jpg",
+        "assets/img/apartments/apart8252/216.jpg",
+        "assets/img/apartments/apart8252/218.jpg",
+
       ],
       description: 'Просторная однокомнатная квартира с балконом. Полностью укомплектована всем необходимым для комфортного проживания: кондиционер, холодильник, плита, микроволновка, стиральная машина, водонагреватель, телевизор, фен, утюг. Для вашего комфорта предоставляется постельное белье, полотенца и средства гигиены. Возможна помесячная аренда.',
       amenities: [
@@ -218,10 +242,16 @@ export class ApartmentService {
       isPopular: false,
       isLongTerm: false,
       images: [
-        "assets/img/apart.jpg",
-        "assets/img/apart2.jpg",
-        "assets/img/apart3.png",
-        "assets/img/apart4.jpg"
+        "assets/img/apartments/apart119/img119.JPG",
+        "assets/img/apartments/apart119/img119.1.JPG",
+        "assets/img/apartments/apart119/img191.2.JPG",
+        "assets/img/apartments/apart119/img119.3.JPG",
+        "assets/img/apartments/apart119/img119.4.JPG",
+        "assets/img/apartments/apart119/img119.5.JPG",
+        "assets/img/apartments/apart119/img119.6.JPG",
+        "assets/img/apartments/apart119/img119.7.JPG",
+        "assets/img/apartments/apart119/img119.8.JPG",
+
       ],
       description: 'Просторная однокомнатная квартира с балконом. В наличии вся необходимая техника: кондиционер, холодильник, плита, микроволновка, стиральная машина, посудомоечная машина, телевизор, фен, утюг. Для гостей предоставляется постельное белье, полотенца и средства гигиены.',
       amenities: [
@@ -269,10 +299,14 @@ export class ApartmentService {
       isPopular: false,
       isLongTerm: false,
       images: [
-        "assets/img/apart.jpg",
-        "assets/img/apart2.jpg",
-        "assets/img/apart3.png",
-        "assets/img/apart4.jpg"
+        "assets/img/apartments/apart19A/IMG_9432.jpg",
+        "assets/img/apartments/apart19A/IMG_9433.jpg",
+        "assets/img/apartments/apart19A/IMG_9434.jpg",
+        "assets/img/apartments/apart19A/IMG_9436.jpg",
+        "assets/img/apartments/apart19A/IMG_9437.jpg",
+        "assets/img/apartments/apart19A/IMG_9438.jpg",
+        "assets/img/apartments/apart19A/IMG_9440.jpg",
+
       ],
       description: 'Однокомнатная квартира с видом во двор. В наличии вся необходимая техника: кондиционер, холодильник, плита, микроволновка, стиральная машина, посудомоечная машина, телевизор, фен, утюг. Для гостей предоставляется постельное белье, полотенца и средства гигиены.',
       amenities: [
@@ -316,13 +350,20 @@ export class ApartmentService {
       area: 60,
       price: 5500,
       floor: 5,
-      isPopular: false,
+      isPopular: true,
       isLongTerm: true,
       images: [
-        "assets/img/apart.jpg",
-        "assets/img/apart2.jpg",
-        "assets/img/apart3.png",
-        "assets/img/apart4.jpg"
+        "assets/img/apartments/apart2060/IMG_0964.JPG",
+        "assets/img/apartments/apart2060/IMG_0965.JPG",
+        "assets/img/apartments/apart2060/IMG_0966.JPG",
+        "assets/img/apartments/apart2060/IMG_0968.JPG",
+        "assets/img/apartments/apart2060/IMG_0970.JPG",
+        "assets/img/apartments/apart2060/IMG_0977.JPG",
+        "assets/img/apartments/apart2060/IMG_0979.JPG",
+        "assets/img/apartments/apart2060/IMG_0981.JPG",
+        "assets/img/apartments/apart2060/IMG_0982.JPG",
+        "assets/img/apartments/apart2060/IMG_0984.JPG",
+        "assets/img/apartments/apart2060/IMG_0985.JPG"
       ],
       description: 'Трёхкомнатная квартира с балконом и лоджией. В наличии техника: холодильник, плита, телевизор, фен, утюг. Для гостей предоставляется постельное белье, полотенца и средства гигиены. Возможна помесячная аренда.',
       amenities: [
@@ -361,17 +402,23 @@ export class ApartmentService {
       id: 8,
       name: 'Студия',
       address: 'Краснодарский край, г.о. Сочи, с. Эсто-Садок, Берёзовая ул., 126\nр-н Адлерский',
-      rooms: 0,
+      rooms: 1,
       area: 33,
       price: 8000,
       floor: 2,
-      isPopular: false,
+      isPopular: true,
       isLongTerm: true,
       images: [
-        "assets/img/apart.jpg",
-        "assets/img/apart2.jpg",
-        "assets/img/apart3.png",
-        "assets/img/apart4.jpg"
+        "assets/img/apartments/apart126/IMG_9564.jpg",
+        "assets/img/apartments/apart126/IMG_9566.jpg",
+        "assets/img/apartments/apart126/IMG_9570.jpg",
+        "assets/img/apartments/apart126/IMG_9572.jpg",
+        "assets/img/apartments/apart126/IMG_9573.jpg",
+        "assets/img/apartments/apart126/IMG_9574.jpg",
+        "assets/img/apartments/apart126/IMG_9577.jpg",
+        "assets/img/apartments/apart126/IMG_9578.jpg",
+        "assets/img/apartments/apart126/IMG_9585.jpg",
+
       ],
       description: 'Студия с видом на улицу и во двор. В наличии техника: кондиционер, холодильник, плита, микроволновка, стиральная машина, телевизор, фен, утюг. Для гостей предоставляется постельное белье, полотенца и средства гигиены. Возможна помесячная аренда.',
       amenities: [
@@ -405,8 +452,7 @@ export class ApartmentService {
         view: 'На улицу, Во двор'
       },
       deposit: 0
-    }
-    ,
+    },
     {
       id: 9,
       name: 'Двухкомнатная квартира',
@@ -415,13 +461,20 @@ export class ApartmentService {
       area: 64,
       price: 15000,
       floor: 1,
-      isPopular: false,
+      isPopular: true,
       isLongTerm: true,
       images: [
-        "assets/img/apart.jpg",
-        "assets/img/apart2.jpg",
-        "assets/img/apart3.png",
-        "assets/img/apart4.jpg"
+        "assets/img/apartments/apart32/20260322_154424.jpg",
+        "assets/img/apartments/apart32/20260322_154231.jpg",
+        "assets/img/apartments/apart32/20260322_154200.jpg",
+        "assets/img/apartments/apart32/20260322_154156.jpg",
+        "assets/img/apartments/apart32/20260322_154105.jpg",
+        "assets/img/apartments/apart32/20260322_154031.jpg",
+        "assets/img/apartments/apart32/20260322_154002.jpg",
+        "assets/img/apartments/apart32/20260322_153948.jpg",
+        "assets/img/apartments/apart32/20260322_153844.jpg",
+        "assets/img/apartments/apart32/20260322_153823.jpg",
+
       ],
       description: 'Двухкомнатная квартира на первом этаже с видом на улицу и во двор. Полностью укомплектована техникой: кондиционер, холодильник, плита, микроволновка, стиральная машина, посудомоечная машина, водонагреватель, телевизор, фен, утюг. Для гостей предоставляется постельное белье и полотенца. Возможна помесячная аренда.',
       amenities: [
@@ -456,7 +509,8 @@ export class ApartmentService {
         view: 'На улицу, Во двор'
       },
       deposit: 10000
-    }
+    },
+
   ];
   getApartments(): Observable<Apartment[]> {
     return of(this.apartments);

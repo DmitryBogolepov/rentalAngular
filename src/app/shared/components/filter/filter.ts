@@ -173,7 +173,6 @@ export class Filter implements OnInit {
       queryParams.rooms = this.activeParams.rooms;
     }
 
-    // Добавляем фильтр по типу аренды
     if (this.activeParams.rentalTypes && this.activeParams.rentalTypes.length > 0) {
       queryParams.rentalTypes = this.activeParams.rentalTypes;
     }
