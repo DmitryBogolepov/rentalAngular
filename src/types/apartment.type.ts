@@ -5,10 +5,12 @@ export interface Apartment {
   rooms: number;
   area: number;
   price: number;
+  monthPrice?:number;
   images: string[];
   isPopular?: boolean;
   description?: string;
   amenities?: string[];
+  isShortTerm:boolean;
   isLongTerm: boolean;
   floor:number,
   rules?: {

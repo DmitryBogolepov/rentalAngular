@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <div *ngIf="apartment.isLongTerm" class="apartment-description">
+        <div *ngIf="apartment.isLongTerm && !apartment.monthPrice" class="apartment-description">
           <h3>Долгосрочная аренда:</h3>
           <p>По вопросам долгосрочной аренды цену уточняйте отдельно</p>
         </div>

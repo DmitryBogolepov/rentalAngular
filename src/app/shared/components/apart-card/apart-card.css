@@ -26,9 +26,12 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.rental-badge.long-term {
+.rental-badge.green {
   background-color: #e8f5e9;
   color: #388e3c;
+}
+
+.rental-badge.long-term {
   left: 100px;
 }
 

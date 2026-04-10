@@ -7,10 +7,10 @@
         <img [src]="slide" [alt]="'photo of apartment ' + (i + 1)">
       </div>
     </div>
-    <div *ngIf="apartment.isLongTerm || !apartment.isLongTerm" class="rental-badge">
+    <div *ngIf="apartment.isShortTerm" class="rental-badge">
       {{ 'Посуточно' }}
     </div>
-    <div *ngIf="apartment.isLongTerm" class="rental-badge" [class.long-term]="apartment.isLongTerm">
+    <div *ngIf="apartment.isLongTerm" class="rental-badge green" [class.long-term]="apartment.isLongTerm && apartment.isShortTerm">
       {{ 'Долгосрочно' }}
     </div>
     <button class="slider-prev" type="button" (click)="prevSlide()">❮</button>
@@ -42,8 +42,7 @@
   <div class="apart-item-action">
     <div class="apart-price">
       <span>от</span>
-      {{ apartment.price }} ₽/<span>сутки</span>
-<!--      {{ apartment.isLongTerm ? 'мес' : 'сутки' }}-->
+      {{ apartment.price  }} ₽/<span>{{ apartment.isLongTerm && !apartment.isShortTerm ? 'мес' : 'сутки' }}</span>
     </div>
     <button class="info-btn" (click)="goToApartmentPage()">
       Подробнее

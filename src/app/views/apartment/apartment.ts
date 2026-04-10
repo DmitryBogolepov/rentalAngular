@@ -132,14 +132,21 @@ export class ApartmentComponent implements OnInit, OnDestroy {
   }
   getPriceDisplay(): string {
     if (!this.apartment) return '';
-    return this.apartment.isLongTerm
-      ? `${this.apartment.price} ₽/сутки`
+    return this.apartment.isLongTerm && !this.apartment.isShortTerm
+      ? `${this.apartment.price} ₽/мес`
       : `${this.apartment.price} ₽/сутки`;
   }
 
 // Получить текст типа аренды
   getRentalTypeText(): string {
-    return this.apartment?.isLongTerm ? 'Посуточно, Долгосрочно' : 'Посуточно';
+    if(this.apartment?.isShortTerm && this.apartment?.isLongTerm) {
+      return  'Посуточно, Долгосрочно'
+    } else if   (this.apartment?.isShortTerm) {
+      return  'Посуточно'
+    } else if (this.apartment?.isLongTerm && !this.apartment?.isShortTerm) {
+      return 'Долгосрочно'
+    }
+    return 'Посуточно, Долгосрочно'
   }
 
 // Получить класс для бейджа
